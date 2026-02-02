@@ -1,0 +1,10 @@
+NAME   FSTYPE FSVER       MOUNTPOINTS
+sda                                                                          
+├─sda1 vfat   FAT32       /efi
+├─sda2 swap   1           [SWAP]
+└─sda3 xfs
+
+Device        Start       End   Sectors   Size Type
+/dev/sda1      2048   2099199   2097152     1G EFI System
+/dev/sda2   2099200  18876415  16777216     8G Linux swap
+/dev/sda3  18876416 468860927 449984512 214.6G Linux root (x86-64)

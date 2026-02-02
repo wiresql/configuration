@@ -1,0 +1,5 @@
+stars() {
+  gh api user/starred --template '{{range .}}{{.full_name|color "red"}} ({{timeago .updated_at}}){{"\n"}}{{end}}' | cat
+}
+
+alias icat="kitten icat"
