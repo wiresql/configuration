@@ -3,3 +3,5 @@ stars() {
 }
 
 alias icat="kitten icat"
+
+PS1='\e[38;2;190;149;255m\u@\h λ \e[0m'
