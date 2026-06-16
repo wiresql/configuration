@@ -2,6 +2,51 @@ stars() {
   gh api user/starred --template '{{range .}}{{.full_name|color "red"}} ({{timeago .updated_at}}){{"\n"}}{{end}}' | cat
 }
 
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
 alias icat="kitten icat"
+alias cls="clear"
+alias vi="vim"
 
 PS1='\e[38;2;190;149;255m\u@\h λ \e[0m'
+
+export TERM=xterm-256color
+
+# contest pipelines
+tmp() {
+  if [ -z "$1" ]; then
+    echo "usage: tmp <filename>"
+    return 1
+  fi
+
+  local filename="$1.cpp"
+
+  if [ -e "$filename" ]; then
+    echo "file already exists: $filename"
+    return 1
+  fi
+
+  cat > "$filename" <<EOF
+/**
+ *    author: wires
+ *    site:   wrs.sh
+**/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  return 0;
+}
+EOF
+
+  echo "created $filename"
+}
+
+function compile {
+  g++ -std=c++11 -O2 -Wall -Wextra -Wshadow $1 -o "${1%.cpp}"
+}
+
+bind 'set bell-style none'
